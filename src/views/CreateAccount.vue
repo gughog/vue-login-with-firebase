@@ -60,10 +60,18 @@ export default {
         this.account.email,
         this.account.password
       ).then(user => {
-        alert(`Sucesso! O usuário ${user.user.email} foi criado!`)
+        this.$swal({
+          title: 'Usuário criado!',
+          text: `O usuário ${user.user.email} foi criado com sucesso!`,
+          type: 'success'
+        })
         console.log(user)
       }).catch(err => {
-        alert('Houve um erro: ' + err.message)
+        this.$swal({
+          title: 'Houve um erro!',
+          text: `${err.message}`,
+          type: 'error'
+        })
       })
     },
   },

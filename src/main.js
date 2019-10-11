@@ -1,7 +1,10 @@
 import Vue from 'vue';
 import firebase from 'firebase';
+import VueSweetalert2 from 'vue-sweetalert2';
 import App from './App.vue';
 import router from './router';
+
+Vue.use(VueSweetalert2);
 
 Vue.config.productionTip = false;
 
