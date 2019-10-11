@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -69,7 +71,7 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 98vh;
   }
   .x-center {
     text-align: center;
@@ -103,6 +105,14 @@ textarea {
     input[type=password] {
       width: 25vw;
     }
+  }
+
+  /* Fade effects for route transitions */
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
   }
 
 </style>
