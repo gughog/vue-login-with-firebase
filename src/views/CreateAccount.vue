@@ -65,6 +65,10 @@ export default {
           text: `O usuário ${user.user.email} foi criado com sucesso!`,
           type: 'success'
         })
+        // Apaga o conteúdo
+        for (let item in this.account) {
+          this.account[item] = ''
+        }
         console.log(user)
       }).catch(err => {
         this.$swal({
