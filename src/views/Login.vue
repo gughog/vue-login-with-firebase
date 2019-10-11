@@ -15,7 +15,12 @@
           type="password"
           placeholder="Digite sua senha"
         >
-        <input class="blocky margin-y-md" type="button" value="Logar">
+        <input
+          class="blocky margin-y-md"
+          type="button"
+          value="Logar"
+          @click="makeLogin"
+        >
         <p class="x-align-left">
           <router-link to="/create-account">
             Criar nova conta
@@ -36,6 +41,11 @@ export default {
         senha: null,
       },
     };
+  },
+  methods: {
+    makeLogin() {
+      this.$router.replace('home');
+    },
   },
 };
 </script>
