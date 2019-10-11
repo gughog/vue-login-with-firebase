@@ -70,7 +70,7 @@ export default {
         this.$swal({
           title: 'Houve um erro!',
           text: `${err.message}`,
-          type: 'error'
+          type: 'error',
         })
       })
     },
