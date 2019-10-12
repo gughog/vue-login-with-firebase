@@ -10,7 +10,7 @@
           placeholder="Digite seu email"
         >
         <input
-          v-model="login.senha"
+          v-model="login.password"
           class="blocky margin-y-md"
           type="password"
           placeholder="Digite sua senha"
@@ -32,19 +32,39 @@
 </template>
 
 <script>
+import firebase from 'firebase';
+
 export default {
   name: 'Login',
   data() {
     return {
       login: {
-        email: null,
-        senha: null,
+        email: '',
+        password: '',
       },
     };
   },
   methods: {
+    /* eslint-disable */
     makeLogin() {
-      this.$router.replace('home');
+      let { email, password } = this.login
+
+      firebase.auth().signInWithEmailAndPassword(
+        email,
+        password
+      ).then(user => {
+        this.$swal({
+          title: `Logado!`,
+          text: `Seja bem vindo, ${user.user.email}!`,
+          type: 'success'
+        })
+      }).catch(err => {
+        this.$swal({
+          title: `Oops, houve algum erro...`,
+          text: `Erro: ${err.message}!`,
+          type: 'error'
+        })
+      })
     },
   },
 };
