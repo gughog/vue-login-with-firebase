@@ -9,9 +9,12 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      name: 'home',
-      path: '/home',
-      component: Home,
+      path: '*',
+      redirect: '/login',
+    },
+    {
+      path: '/',
+      redirect: '/login',
     },
     {
       name: 'login',
@@ -22,6 +25,14 @@ export default new Router({
       name: 'CreateAccount',
       path: '/create-account',
       component: CreateAccount,
+    },
+    {
+      name: 'home',
+      path: '/home',
+      component: Home,
+      meta: {
+        requireAuth: true,
+      },
     },
   ],
 });
