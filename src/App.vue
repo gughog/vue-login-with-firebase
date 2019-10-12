@@ -55,6 +55,10 @@ textarea {
   input[type=button]:hover {
     background: #ccc;
   }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
   a {
     text-decoration: none;
     color: cornflowerblue;

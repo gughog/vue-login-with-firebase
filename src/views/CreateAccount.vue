@@ -73,7 +73,7 @@ export default {
       ).then(user => {
         this.$swal({
           title: 'Usuário criado!',
-          text: `O usuário ${email} foi criado com sucesso!`,
+          text: `O usuário ${user.user.email} foi criado com sucesso!`,
           type: 'success'
         })
         // Apaga o conteúdo
