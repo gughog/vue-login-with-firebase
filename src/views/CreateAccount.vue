@@ -56,13 +56,24 @@ export default {
   },
   methods: {
     createNewUser() {
+      let { email, password, password2 } = this.account
+
+      if (password !== password2) {
+        this.$swal({
+          title: 'Senhas divergentes!',
+          text: 'Confira se sua senha foi digitada correntamente nos campos e tente novamente.',
+          type: 'warning'
+        })
+        return
+      }
+
       firebase.auth().createUserWithEmailAndPassword(
-        this.account.email,
-        this.account.password
+        email,
+        password
       ).then(user => {
         this.$swal({
           title: 'Usuário criado!',
-          text: `O usuário ${user.user.email} foi criado com sucesso!`,
+          text: `O usuário ${email} foi criado com sucesso!`,
           type: 'success'
         })
         // Apaga o conteúdo
