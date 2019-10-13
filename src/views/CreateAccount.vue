@@ -73,8 +73,12 @@ export default {
       ).then(user => {
         this.$swal({
           title: 'Usuário criado!',
-          text: `O usuário ${user.user.email} foi criado com sucesso!`,
-          type: 'success'
+          text: `O usuário ${user.user.email} foi criado com sucesso! Redirecionando...`,
+          type: 'success',
+          timer: 2000,
+          onClose: () => {
+            this.$router.replace('login')
+          }
         })
         // Apaga o conteúdo
         for (let item in this.account) {

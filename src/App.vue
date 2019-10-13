@@ -96,6 +96,11 @@ textarea {
     border-radius: 0.4rem;
     padding: 0.6rem;
   }
+  .text-body {
+    line-height: 1.5;
+    font-size: 1.1rem;
+    text-align: justify;
+  }
 
   /* Media queries */
   @media screen and (max-width: 576px) {

@@ -12,6 +12,20 @@
     <div>
       Usuário logado: {{ user }}
     </div>
+    <h3>Sobre este projeto:</h3>
+    <div class="text-body">
+      <p>
+        Se você está vendo esta tela e o gatinho fofinho, você está autenticado no sistema e
+        logou com sucesso, consequentemente sua sessão está ativa.
+        Este projeto tem como objetivo fazer funcionar a implementação
+        do sistema de login do firebase.
+      </p>
+      <p>
+        Serviu de estudos e como boilerplate para projetos futuros. Então, se você está
+        logado, curta o gif do gatinho e ao terminar tente fazer um logout,
+        se tudo der certo, sua sessão se encerrou com sucesso! Obrigado por ler até aqui!
+      </p>
+    </div>
   </div>
 </template>
 
