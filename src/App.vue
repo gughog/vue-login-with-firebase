@@ -82,6 +82,8 @@ textarea {
   }
   .x-align-right {
     float: right;
+  }
+  .float-clear {
     clear: both;
   }
   .x-padding-sm {
@@ -100,6 +102,17 @@ textarea {
     line-height: 1.5;
     font-size: 1.1rem;
     text-align: justify;
+  }
+  .color-red {
+    color: darkred;
+  }
+  .color-red:hover {
+    color: red;
+  }
+  .separator {
+    color: #ccc;
+    width: 180px;
+    margin-bottom: 1rem;
   }
 
   /* Media queries */

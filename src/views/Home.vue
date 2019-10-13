@@ -10,7 +10,7 @@
     </div>
     <hr />
     <div>
-      Usuário logado: {{ user }}
+      Usuário logado: {{ getUsername }}
     </div>
     <h3>Sobre este projeto:</h3>
     <div class="text-body">
@@ -39,6 +39,16 @@ export default {
     return {
       user: firebase.auth().currentUser.email,
     };
+  },
+  computed: {
+    getUsername: function () {
+      // Caso o user não houver nome cadastrado, mostra o email
+      if (firebase.auth().currentUser.displayName !== null) {
+        return firebase.auth().currentUser.displayName
+      } else {
+        return firebase.auth().currentUser.email
+      }
+    }
   },
   methods: {
     doLogout () {

@@ -26,6 +26,14 @@
             Criar nova conta
           </router-link>
         </p>
+
+        <hr class="float-clear separator"/>
+
+        <div class="x-center">
+          <a @click="googleLogin" class="color-red" href="#">
+            Logar com o Google
+          </a>
+        </div>
       </form>
     </div>
   </div>
@@ -47,6 +55,7 @@ export default {
   methods: {
     /* eslint-disable */
     makeLogin() {
+      // Login com Email e senha
       let { email, password } = this.login
 
       firebase.auth().signInWithEmailAndPassword(
@@ -60,9 +69,24 @@ export default {
           timer: 2000,
           onClose: () => {
             this.$router.replace('home')
-            console.log(firebase.auth().currentUser.email)
+            console.log(firebase.auth().currentUser)
           }
         })
+      }).catch(err => {
+        this.$swal({
+          title: `Oops, houve algum erro...`,
+          text: `Erro: ${err.message}!`,
+          type: 'error'
+        })
+      })
+    },
+    googleLogin () {
+      // Login com o Google
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).then((result) => {
+        this.$router.replace('home')
+        console.log(result)
+        console.log(firebase.auth().currentUser)
       }).catch(err => {
         this.$swal({
           title: `Oops, houve algum erro...`,
