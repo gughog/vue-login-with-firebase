@@ -80,9 +80,12 @@ textarea {
   .x-center {
     text-align: center;
   }
-  .x-align-left {
+  .x-align-right {
     float: right;
     clear: both;
+  }
+  .x-padding-sm {
+    padding: 0 10px;
   }
   .margin-y-md {
     margin: 0.4rem 0;

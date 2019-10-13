@@ -21,7 +21,7 @@
           value="Logar"
           @click="makeLogin"
         >
-        <p class="x-align-left">
+        <p class="x-align-right">
           <router-link to="/create-account">
             Criar nova conta
           </router-link>
@@ -55,8 +55,13 @@ export default {
       ).then(user => {
         this.$swal({
           title: `Logado!`,
-          text: `Seja bem vindo, ${user.user.email}!`,
-          type: 'success'
+          text: `Seja bem vindo, ${user.user.email}! Redirecionando...`,
+          type: 'success',
+          timer: 2000,
+          onClose: () => {
+            this.$router.replace('home')
+            console.log(firebase.auth().currentUser.email)
+          }
         })
       }).catch(err => {
         this.$swal({

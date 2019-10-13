@@ -8,6 +8,8 @@ Vue.use(VueSweetalert2);
 
 Vue.config.productionTip = false;
 
+let app = '';
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyDouGab7opQh7F4u928qN-oX0zwLt00YYE',
@@ -23,7 +25,12 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-new Vue({
-  router,
-  render: h => h(App),
-}).$mount('#app');
+// Makes sure firebase is loaded and then vue is loaded
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      render: h => h(App),
+    }).$mount('#app');
+  }
+});
